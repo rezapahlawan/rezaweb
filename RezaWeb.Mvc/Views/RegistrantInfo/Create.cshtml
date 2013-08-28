@@ -1,0 +1,96 @@
+﻿@model RezaWeb.Mvc.Models.RegistrantInfo
+
+@{
+	ViewBag.Title = "Create";
+}
+
+<div class="well">
+	<p>
+		Silahkan isi data-data untuk mendapatkan nomor ujian<br/>
+		Nomor ujian akan diberikan setelah anda menekan tombol CREATE
+	</p>
+</div>
+
+<p class="text-danger">@ViewBag.ErrorMessage</p>
+@using (Html.BeginForm())
+{
+	@Html.ValidationSummary(true)
+
+	<fieldset>
+		<legend>Info Pelamar</legend>
+		<input type="hidden" name="userId" value="@ViewBag.UserId"/>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Name)
+		
+			<div>
+				@Html.EditorFor(model => model.Name)
+				@Html.ValidationMessageFor(model => model.Name, string.Empty, new {@class = "help-block"})
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Sex)
+		
+			<div>
+				@Html.EditorFor(model => model.Sex)
+				@Html.ValidationMessageFor(model => model.Sex, string.Empty, new {@class = "help-block"})
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.BirthPlace)
+		
+			<div>
+				@Html.EditorFor(model => model.BirthPlace)
+				@Html.ValidationMessageFor(model => model.BirthPlace, string.Empty, new {@class = "help-block"})
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.BirthDate)
+		
+			<div>
+				@*@Html.EditorFor(model => model.BirthDate)*@
+				@Html.TextBoxFor(x => x.BirthDate, new {@class = "date"})
+				@Html.ValidationMessageFor(model => model.BirthDate, string.Empty, new {@class = "help-block"})
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Address)
+		
+			<div>
+				@Html.EditorFor(model => model.Address)
+				@Html.ValidationMessageFor(model => model.Address, string.Empty, new {@class = "help-block"})
+			</div>
+		</div>
+
+		<div class="form-group">			
+			<input type="submit" value="Create" class="btn btn-primary" />			
+		</div>
+	</fieldset>
+}
+
+<div>
+	@Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+
+	<script>
+		$.validator.setDefaults({
+			highlight: function(element) {
+				$(element).closest(".form-group").addClass("error");
+			},
+			unhighlight: function(element) {
+				$(element).closest(".form-group").removeClass("error");
+			}
+		});
+
+		$(document).ready(function() {
+			$('.date').datepicker({ dateFormat: "mm/dd/yy" });
+		});
+	</script>
+}

@@ -1,0 +1,33 @@
+﻿@if (Request.IsAuthenticated)
+{
+	<text>
+		<style>
+			a.login-partial,
+			a.login-partial:visited,
+			a.login-partial:active,
+			span.login-partial {
+				color: darkgray;
+				background-color: transparent;
+				text-decoration: none;
+			}
+			a.login-partial:hover {
+				color: white;
+			}
+		</style>
+		<div style="line-height: 50px;">
+			<span class="login-partial">Welcome &nbsp;</span>
+			@Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new {@class = "username login-partial", title = "Manage"})
+			<span style="color: darkgrey; margin: 0 5px;">|</span>
+			@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new {id = "logoutForm", style = "display: inline"}))
+			{
+				@Html.AntiForgeryToken()
+				<a href="javascript:document.getElementById('logoutForm').submit()" style="margin: 0;" class="login-partial">Log off</a>
+			}
+		</div>
+	</text>
+}
+else
+{
+	<li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new {id = "loginLink"})</li>
+	<li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new {id = "registerLink"})</li>
+}

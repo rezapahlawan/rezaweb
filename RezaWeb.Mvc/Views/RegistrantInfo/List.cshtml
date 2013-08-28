@@ -1,0 +1,68 @@
+﻿@model IEnumerable<RezaWeb.Mvc.Models.RegistrantInfo>
+
+@{
+	ViewBag.Title = "Index";
+}
+
+<h2>Para Pelamar CPNS</h2>
+
+<p>
+	@*@Html.ActionLink("Create New", "Create")*@
+	Jumlah Pelamar : @Model.Count() orang
+</p>
+<div class="table-responsive">
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>
+					@Html.DisplayNameFor(model => model.UserProfile.UserName)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Name)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Sex)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.BirthPlace)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.BirthDate)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Address)
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model) {
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.UserProfile.UserName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Name)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Sex)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.BirthPlace)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.BirthDate)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Address)
+					</td>
+					<td>
+						@Html.ActionLink("Edit", "Edit", new { id=item.RegistrantInfoId }) |
+						@Html.ActionLink("Details", "Details", new { id=item.RegistrantInfoId }) |
+						@Html.ActionLink("Delete", "Delete", new { id=item.RegistrantInfoId })
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>	
+</div>

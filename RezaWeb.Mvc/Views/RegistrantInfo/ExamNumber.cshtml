@@ -1,0 +1,72 @@
+﻿@model RezaWeb.Mvc.Models.UserProfile
+
+@{
+    ViewBag.Title = "ExamNumber";
+}
+
+<h2>Data Peserta Ujian CPNS</h2>
+
+<div class="well">
+	<p>
+		Print halaman ini sebagai Kartu Ujian anda.<br/>
+		Nomor Ujian anda tertera dibawah.
+	</p>
+</div>
+
+<fieldset>
+	<legend>Info Pelamar</legend>
+
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.RegistrantInfo.Name)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.RegistrantInfo.Name)
+		</dd>
+	</dl>
+
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.RegistrantInfo.Sex)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.RegistrantInfo.Sex)
+		</dd>
+	</dl>
+
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.RegistrantInfo.BirthPlace)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.RegistrantInfo.BirthPlace)
+		</dd>
+	</dl>
+
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.RegistrantInfo.BirthDate)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.RegistrantInfo.BirthDate)
+		</dd>
+	</dl>
+
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.RegistrantInfo.Address)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.RegistrantInfo.Address)
+		</dd>
+	</dl>
+	
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.RegistrantInfo.ExamNumber)
+		</dt>
+		<dd>
+			<h4><span class="label label-success">@Model.RegistrantInfo.ExamNumber</span></h4>
+		</dd>
+	</dl>
+</fieldset>

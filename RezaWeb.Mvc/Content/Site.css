@@ -1,0 +1,13 @@
+﻿body {
+    padding-top: 80px;
+}
+
+.field-validation-error {
+    color: red;
+}
+
+.sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 50%; /* 6 columns */
+}
